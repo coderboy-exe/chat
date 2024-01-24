@@ -10,19 +10,32 @@ from django.core.serializers import serialize
 from django.views.decorators.csrf import csrf_exempt
 
 from .models import UserModel, Message, Room
+from core import settings
 
 # Create your views here.
 
 def index(request):
     user = request.user
     context = {
-       "user":user
+       "user":user,
+       "error": ""
    }
     return render(request, 'index.html', context=context)
 
 def room(request, room_name, **kwargs):
-    # return Response({"room_name": room_name})
-    # gp = Group.objects.create(room=room_name, members=request.user)
+    """_summary_
+
+    Args:
+        request (_type_): _description_
+        room_name (str): room name
+
+    Returns:
+        view: returns a view template
+    """
+    api_key = request.GET.get('api_key')
+    if api_key != settings.API_KEY:
+        return render(request, 'index.html', {'error': 'Invalid API key'})
+    
     context = {
         "room_name": room_name,
     }
@@ -31,17 +44,54 @@ def room(request, room_name, **kwargs):
 
 
 def get_room_data(request, room_name):
+    """_summary_
+
+    Args:
+        request (_type_): _description_
+        room_name (str): name of the room
+
+    Returns:
+        list: room details
+    """
+    api_key = request.GET.get('api_key')
+    if api_key != settings.API_KEY:
+        return JsonResponse({'error': 'Invalid API key'}, status=401)
+    
     room_data = Room.objects.filter(name=rf"chat_{room_name}")
     serialized_data = serialize('json', room_data)
     return JsonResponse(json.loads(serialized_data), safe=False, status=200)
 
 
 def get_all_rooms(request):
+    """_summary_
+
+    Args:
+        request (_type_): _description_
+
+    Returns:
+        list: list of all rooms
+    """
+    api_key = request.GET.get('api_key')
+    if api_key != settings.API_KEY:
+        return JsonResponse({'error': 'Invalid API key'}, status=401)
+    
     room_data = Room.objects.all()
     serialized_data = serialize('json', room_data)
     return JsonResponse(json.loads(serialized_data), safe=False, status=200)
 
 def get_all_messages(request):
+    """_summary_
+
+    Args:
+        request (_type_): _description_
+
+    Returns:
+        list: list of all messages
+    """
+    api_key = request.GET.get('api_key')
+    if api_key != settings.API_KEY:
+        return JsonResponse({'error': 'Invalid API key'}, status=401)
+    
     message_data = Message.objects.all()
     serialized_data = serialize('json', message_data)
     return JsonResponse(json.loads(serialized_data), safe=False, status=200)
@@ -49,6 +99,19 @@ def get_all_messages(request):
 
 @csrf_exempt
 def mark_as_read(request, message_id):
+    """_summary_
+
+    Args:
+        request (_type_): _description_
+        message_id (int): id of the message to be marked as "read"
+
+    Returns:
+        dict: {"status": "]"}
+    """
+    api_key = request.GET.get('api_key')
+    if api_key != settings.API_KEY:
+        return JsonResponse({'error': 'Invalid API key'}, status=401)
+    
     try:
         message = Message.objects.get(id=message_id)
         message.is_read = True

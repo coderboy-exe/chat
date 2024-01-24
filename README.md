@@ -13,7 +13,7 @@ Brief description or tagline for your project.
 
 ## Overview
 
-A simple websocket based chat application powered by django-channels
+A simple websocket based chat application powered by django-channels and Redis
 
 ## Prerequisites
 
@@ -23,6 +23,13 @@ You need to have Docker installed in order to run this application. CHeck out th
 
 Provide step-by-step instructions on how to install and set up your project. Include any configuration steps, environment variables, or database setup required.
 
+### Method 1
+```bash
+# Simply pull the image 
+docker pull coderboyexe/chat-chattie:latest
+```
+
+### Method 2
 ```bash
 # Clone the repository
 git clone https://github.com/yourusername/chattie.git

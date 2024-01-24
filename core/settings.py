@@ -135,3 +135,9 @@ CHANNEL_LAYERS = {
         },
     },
 }
+
+CORS_ALLOWED_ORIGINS = [
+    "*",
+]
+
+API_KEY = "my_api_key"

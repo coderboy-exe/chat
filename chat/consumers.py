@@ -15,6 +15,10 @@ from .models import UserModel, Room, Message
 
 class ChatConsumer(AsyncWebsocketConsumer):
     async def connect(self):
+        
+        # api_key = self.scope.get('query_string', b'').decode('utf-8').split('=')[-1]
+        # print(api_key)
+        
         user = await self.get_user(self.scope['user'].id)
         print("TEST USER ANON", user)
         if user.is_anonymous:
