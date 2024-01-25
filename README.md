@@ -78,7 +78,7 @@ All tests shoud pass
 
 Gets all messages
 
-#### `GET /api/chat/messages/?api_key=my_api_key?room_id=<pk:room_id>`
+#### `GET /api/chat/messages/?api_key=my_api_key?room_id=<int:room_id>`
 
 Gets all messages in a specific room (id)
 
