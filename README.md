@@ -1,7 +1,5 @@
 # Chattie
 
-Brief description or tagline for your project.
-
 ## Table of Contents
 - [Overview](#overview)
 - [Prerequisites](#prerequisites)
