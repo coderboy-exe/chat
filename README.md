@@ -98,4 +98,4 @@ If you want to contribute to this project, feel free to create a fork, submit an
 
 ## License
 
-This project is free for distribution under the [MIT License](LICENSE).
+This project is free for distribution under the [MIT License](#license).
