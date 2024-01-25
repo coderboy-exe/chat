@@ -19,7 +19,7 @@ class ChatConsumer(AsyncWebsocketConsumer):
         # api_key = self.scope.get('query_string', b'').decode('utf-8').split('=')[-1]
         # print(api_key)
         
-        user = await self.get_user(self.scope['user'].id)
+        user = await self.get_user(self.scope['user'])
         print("TEST USER ANON", user)
         if user.is_anonymous:
             user = uuid.uuid4()
