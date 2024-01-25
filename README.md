@@ -61,8 +61,9 @@ Note: You can change the default API_KEY value provided in `settings.py`, the de
 ## Template Views
 
 ### In your browser:
-### 127.0.0.1:8000/api/chat/<str:room_name>?api_key=my_api_key
-      Creates a room if it doesnt exist, otherwise, retrieves it
+
+### `loccalhost:8000/api/chat/<str:room_name>?api_key=my_api_key`
+Creates a room if it doesnt exist, otherwise, retrieves it
 
 
 ## API Endpoints
