@@ -56,14 +56,13 @@ python manage.py runserver
 
 Access the application at [http://localhost:8000](http://localhost:8000).
 
-Note: You can change the default API_KEY value provided in `settings.py`
+Note: You can change the default API_KEY value provided in `settings.py`, the default value is `my_api_key`
 
 ## Template Views
-```bash
-# You can play around with the app in your browser at 127.0.0.1:8000
-### `GET /api/chat/<str:room_name>?api_key=my_api_key`
+
+#### You can play around with the app in your browser at 
+##### 127.0.0.1:8000/api/chat/<str:room_name>?api_key=my_api_key`
       Creates a room if it doesnt exist, otherwise, retrieves it
-```
 
 
 ## API Endpoints
