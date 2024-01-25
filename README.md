@@ -1,12 +1,11 @@
 # Chattie
 
-Brief description or tagline for your project.
-
 ## Table of Contents
 - [Overview](#overview)
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
 - [Usage](#usage)
+- [Testing](#testing)
 - [API Endpoints](#api-endpoints)
 - [Contributing](#contributing)
 - [License](#license)
@@ -20,8 +19,6 @@ A simple websocket based chat application powered by django-channels and Redis
 You need to have Docker installed in order to run this application. CHeck out the installagion guide for your Operating System [here](https://www.docker.com/get-started/)
 
 ## Installation
-
-Provide step-by-step instructions on how to install and set up your project. Include any configuration steps, environment variables, or database setup required.
 
 ### Method 1
 ```bash
@@ -49,7 +46,7 @@ docker run --rm -p 6379:6379 redis:7
 
 ## Usage
 
-Explain how users can run and interact with your project. Include any relevant commands or scripts.
+Simply run the dev server
 
 ```bash
 # Run the development server
@@ -58,14 +55,22 @@ python manage.py runserver
 
 Access the application at [http://localhost:8000](http://localhost:8000).
 
-Note: You can change the default API_KEY value provided in `settings.py`
+Note: You can change the default API_KEY value provided in `settings.py`, the default value is `my_api_key`
 
 ## Template Views
-```bash
-# You can play around with the app in your browser at 127.0.0.1:8000
-```
-### `GET /api/chat/<str:room_name>?api_key=my_api_key` #### creates a room if it doesnt exist, otherwise, retrieves it
 
+### In your browser:
+
+### `loccalhost:8000/api/chat/<str:room_name>?api_key=my_api_key`
+Creates a room if it doesnt exist, otherwise, retrieves it
+
+## Testing
+
+```bash
+# Run the tests
+python manage.py test
+```
+All tests shoud pass
 
 ## API Endpoints
 
@@ -73,7 +78,7 @@ Note: You can change the default API_KEY value provided in `settings.py`
 
 Gets all messages
 
-#### `GET /api/chat/messages/?api_key=my_api_key?room_id=<pk:room_id>`
+#### `GET /api/chat/messages/?api_key=my_api_key?room_id=<int:room_id>`
 
 Gets all messages in a specific room (id)
 
@@ -99,4 +104,4 @@ If you want to contribute to this project, feel free to create a fork, submit an
 
 ## License
 
-This project is free for distribution under the [MIT License](LICENSE).
+This project is free for distribution under the [MIT License](#license).
