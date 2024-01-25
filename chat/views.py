@@ -57,7 +57,7 @@ def get_room_data(request, room_name):
     if api_key != settings.API_KEY:
         return JsonResponse({'error': 'Invalid API key'}, status=401)
     
-    room_data = Room.objects.filter(name=rf"chat_{room_name}")
+    room_data = Room.objects.filter(name=f"chat_{room_name}")
     serialized_data = serialize('json', room_data)
     return JsonResponse(json.loads(serialized_data), safe=False, status=200)
 
@@ -79,6 +79,7 @@ def get_all_rooms(request):
     serialized_data = serialize('json', room_data)
     return JsonResponse(json.loads(serialized_data), safe=False, status=200)
 
+
 def get_all_messages(request):
     """_summary_
 
@@ -92,9 +93,16 @@ def get_all_messages(request):
     if api_key != settings.API_KEY:
         return JsonResponse({'error': 'Invalid API key'}, status=401)
     
-    message_data = Message.objects.all()
+    room_id = request.GET.get('room_id')
+    if room_id:
+        message_data = Message.objects.filter(room=room_id)
+    else:
+        message_data = Message.objects.all()
     serialized_data = serialize('json', message_data)
     return JsonResponse(json.loads(serialized_data), safe=False, status=200)
+
+
+    
 
 
 @csrf_exempt

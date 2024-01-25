@@ -58,28 +58,34 @@ python manage.py runserver
 
 Access the application at [http://localhost:8000](http://localhost:8000).
 
+Note: You can change the default API_KEY value provided in `settings.py`
+
 ## Template Views
 ```bash
 # You can play around with the app in your browser at 127.0.0.1:8000
 ```
-### `GET /api/chat/<str:room_name>/` #### creates a room if it doesnt exist, otherwise, retrieves it
+### `GET /api/chat/<str:room_name>?api_key=my_api_key` #### creates a room if it doesnt exist, otherwise, retrieves it
 
 
 ## API Endpoints
 
-### `GET /api/chat/messages/`
+#### `GET /api/chat/messages/?api_key=my_api_key`
 
-Get all messages
+Gets all messages
 
-### `GET /api/chat/rooms/`
+#### `GET /api/chat/messages/?api_key=my_api_key?room_id=<pk:room_id>`
+
+Gets all messages in a specific room (id)
+
+#### `GET /api/chat/rooms?api_key=my_api_key`
 
 Gets all existing rooms
 
-### `GET /api/chat/rooms/{room_name}/`
+#### `GET /api/chat/rooms/{room_name}?api_key=my_api_key`
 
 Gets details of a particular room.
 
-### `POST /api/chat/mark_as_read/{message_id}/`
+#### `POST /api/chat/mark_as_read/{message_id}?api_key=my_api_key`
 
 Marks a message as "Read"
 
