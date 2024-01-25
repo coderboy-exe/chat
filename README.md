@@ -5,6 +5,7 @@
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
 - [Usage](#usage)
+- [Testing](#testing)
 - [API Endpoints](#api-endpoints)
 - [Contributing](#contributing)
 - [License](#license)
@@ -47,7 +48,7 @@ docker run --rm -p 6379:6379 redis:7
 
 ## Usage
 
-Explain how users can run and interact with your project. Include any relevant commands or scripts.
+Simply run the dev server
 
 ```bash
 # Run the development server
@@ -65,6 +66,13 @@ Note: You can change the default API_KEY value provided in `settings.py`, the de
 ### `loccalhost:8000/api/chat/<str:room_name>?api_key=my_api_key`
 Creates a room if it doesnt exist, otherwise, retrieves it
 
+## Testing
+
+```bash
+# Run the tests
+python manage.py test
+```
+All tests shoud pass
 
 ## API Endpoints
 
