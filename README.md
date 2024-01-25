@@ -20,8 +20,6 @@ You need to have Docker installed in order to run this application. CHeck out th
 
 ## Installation
 
-Provide step-by-step instructions on how to install and set up your project. Include any configuration steps, environment variables, or database setup required.
-
 ### Method 1
 ```bash
 # Simply pull the image 
