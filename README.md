@@ -74,6 +74,13 @@ All tests shoud pass
 
 ## API Endpoints
 
+### WebSocket
+
+#### `ws://localhost:8000/ws/chat/<str:roomName>/?token=my_token`
+
+
+### REST APIs
+
 #### `GET /api/chat/messages/?api_key=my_api_key`
 
 Gets all messages
