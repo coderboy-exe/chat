@@ -121,9 +121,11 @@ def mark_as_read(request, message_id):
         return JsonResponse({'error': 'Invalid API key'}, status=401)
     
     try:
-        message = Message.objects.get(id=message_id)
-        message.is_read = True
-        message.save()
+        for i in range(1, message_id + 1):
+            message = Message.objects.get(id=i)
+        
+            message.is_read = True
+            message.save()
         return JsonResponse({'status': 'success'})
     except Message.DoesNotExist:
         return JsonResponse({'status': 'error', 'message': 'Message not found'}, status=404)

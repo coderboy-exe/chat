@@ -85,7 +85,7 @@ All tests shoud pass
 
 Gets all messages
 
-#### `GET /api/chat/messages/?api_key=my_api_key?room_id=<int:room_id>`
+#### `GET /api/chat/messages/?api_key=my_api_key&room_id=<int:room_id>`
 
 Gets all messages in a specific room (id)
 
@@ -99,7 +99,7 @@ Gets details of a particular room.
 
 #### `POST /api/chat/mark_as_read/{message_id}?api_key=my_api_key`
 
-Marks a message as "Read"
+Marks all previous messages (up to the currect value) as "Read"
 
 Refer to the [API documentation](#) for detailed information on each endpoint.
 
