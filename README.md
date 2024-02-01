@@ -12,11 +12,11 @@
 
 ## Overview
 
-A simple websocket based chat application powered by django-channels and Redis
+A simple (Anonymous) websocket based chat application powered by django-channels and Redis
 
 ## Prerequisites
 
-You need to have Docker installed in order to run this application. CHeck out the installagion guide for your Operating System [here](https://www.docker.com/get-started/)
+You need to have Python and Docker installed in order to run this application. CHeck out the installagion guide for your Operating System [here](https://www.docker.com/get-started/)
 
 ## Installation
 
