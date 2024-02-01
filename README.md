@@ -29,7 +29,7 @@ docker pull coderboyexe/chat-chattie:latest
 ### Method 2
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/chattie.git
+git clone https://github.com/coderboy-exe/chattie.git
 
 # Navigate to the project directory
 cd chattie
