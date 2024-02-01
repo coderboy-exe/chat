@@ -35,7 +35,7 @@ git clone https://github.com/coderboy-exe/chattie.git
 cd chattie
 
 # Create and activate your virtual environment (my_env)
-python -m venv my-env (Windows) || Or python3, depending on the alias set on your machine
+python -m venv my-env (Windows) || Or python3 (Linux/Mac)
 
 source my-env/Scripts/activate (WIndows)
 source my-env/bin/activate (Linux)
