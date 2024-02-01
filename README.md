@@ -34,6 +34,12 @@ git clone https://github.com/coderboy-exe/chattie.git
 # Navigate to the project directory
 cd chattie
 
+# Create and activate your virtual environment (my_env)
+python -m venv my-env (Windows) || Or python3, depending on the alias set on your machine
+
+source my-env/Scripts/activate (WIndows)
+source my-env/bin/activate (Linux)
+
 # Install dependencies (for Windows users, open requirements.txt and uncomment this line: # ```twisted-iocpsupport==1.0.4```)
 pip install -r requirements.txt
 
